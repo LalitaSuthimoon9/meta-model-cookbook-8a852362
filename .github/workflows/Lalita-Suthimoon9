@@ -1,0 +1,49 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+Lalita-Suthimoon9
+name: Lalita-Suthimoon9 
+Lalita-Suthimoon9 
+on:Lalita-Suthimoon9 
+  push:Lalita-Suthimoon9 
+    branches: [ Lalita-Suthimoon9 ]
+  pull_request:Lalita-Suthimoon9 
+    # The branches below must be a subset of the branches above
+    branches: [ Lalita-Suthimoon9]
+  schedule:Lalita-Suthimoon9 
+    - cron: '27 7 * * 6'
+Lalita-Suthimoon9 
+permissions:Lalita-Suthimoon9 
+  contents: read
+Lalita-Suthimoon9 
+jobs:Lalita-Suthimoon9 
+  build:Lalita-Suthimoon9 
+    permissions:Lalita-Suthimoon9 
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    name: Lalita-Suthimoon9 
+    runs-on: ubuntu-latest
+    steps:Lalita-Suthimoon9 
+      - name: Lalita-Suthimoon9 
+        uses: Lalita-Suthimoon9 
+Lalita-Suthimoon9 
+      - name: Build an image from Dockerfile
+        run: Lalita-Suthimoon9 
+          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+Lalita-Suthimoon9 
+      - name: Lalita-Suthimoon9 
+        uses: Lalita-Suthimoon9 
+        with:Lalita-Suthimoon9 
+          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          format: 'template'
+          template: '@/contrib/sarif.tpl'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+Lalita-Suthimoon9 
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:Lalita-Suthimoon9 
+          sarif_file: 'trivy-results.sarif'
+Lalita-Suthimoon9 
